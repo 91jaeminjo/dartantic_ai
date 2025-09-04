@@ -19,7 +19,6 @@ class CactusChatModel extends ChatModel<CactusChatOptions> {
          defaultOptions: defaultOptions ?? const CactusChatOptions(),
          /// tools isn't used in the CactusChatModel.
          /// Tools are added to Cactus Agents directly.
-         tools: [],
        );
 
   static final Logger _logger = Logger('dartantic.chat.models.cactus');
