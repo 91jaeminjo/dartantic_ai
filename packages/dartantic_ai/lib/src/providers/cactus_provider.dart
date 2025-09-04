@@ -32,8 +32,9 @@ class CactusProvider
         },
       );
 
-  final CactusChatModel _model;
   static final Logger _logger = Logger('dartantic.chat.providers.cactus');
+  
+  final CactusChatModel _model;
 
   @override
   ChatModel<CactusChatOptions> createChatModel({
