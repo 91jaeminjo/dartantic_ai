@@ -57,6 +57,7 @@ class CactusProvider
         maxTokens: options?.maxTokens,
       ),
       sendChatStream: _model.sendChatStream,
+      disposeChatModel: _model.disposeChatModel,
     );
   }
 

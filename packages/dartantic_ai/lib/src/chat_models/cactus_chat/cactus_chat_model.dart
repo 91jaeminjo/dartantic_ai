@@ -12,6 +12,7 @@ class CactusChatModel extends ChatModel<CactusChatOptions> {
   /// Creates a [CactusChatModel] instance.
   CactusChatModel({
     required this.sendChatStream,
+    required this.disposeChatModel,
     required super.name,
     super.temperature,
     CactusChatOptions? defaultOptions,
@@ -24,12 +25,15 @@ class CactusChatModel extends ChatModel<CactusChatOptions> {
   static final Logger _logger = Logger('dartantic.chat.models.cactus');
 
   /// Function to stream chat with LLM
-  Stream<ChatResult<ChatMessage>> Function(
+  final Stream<ChatResult<ChatMessage>> Function(
     List<ChatMessage> messages, {
     CactusChatOptions? options,
     JsonSchema? outputSchema,
   })
   sendChatStream;
+
+  /// Function to dispose chat model
+  final void Function() disposeChatModel;
 
   @override
   Stream<ChatResult<ChatMessage>> sendStream(
@@ -50,5 +54,7 @@ class CactusChatModel extends ChatModel<CactusChatOptions> {
   }
 
   @override
-  void dispose() {}
+  void dispose() {
+    disposeChatModel();
+  }
 }
